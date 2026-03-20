@@ -1,0 +1,15 @@
+CREATE TABLE DEPORTE (
+	codigo INT PRIMARY KEY IDENTITY(1,1),
+	nombre VARCHAR(50) NOT NULL,
+	es_grupal BIT NOT NULL
+);
+
+CREATE TABLE SOCIO (
+	num_socio INT PRIMARY KEY IDENTITY(1,1),
+	nombre VARCHAR(50) NOT NULL,
+	apellido VARCHAR(50) NOT NULL,
+	DNI INT NOT NULL,
+	fk_codigo INT, 
+		CONSTRAINT FK_SocioDeporte FOREIGN KEY (fk_codigo) 
+			REFERENCES DEPORTE(codigo)
+);
